@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARINE | High-Speed Internet</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🌐 MARINE TECH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#plans">Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Blazing-Fast Internet at Your Fingertips</h1>
+            <p class="lead">Reliable, Affordable, and Uninterrupted Connectivity</p>
+            <a href="#plans" class="btn btn-warning btn-lg fw-bold mt-3">View Plans</a>
+        </div>
+    </header>
+
+    <!-- Internet Plans Section -->
+    <section id="plans" class="container-fluid my-5">
+        <h2 class="text-center fw-bold mb-4 text-primary">Our Internet Plans</h2>
+        <div class="row">
+            {% for plan in plans %}
+            <div class="col-md-4">
+                <div class="card plan-card shadow-lg">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">{{ plan.name }}</h5>
+                        <p class="plan-speed"><i class="fa fa-bolt text-warning"></i> {{ plan.speed }} Mbps</p>
+                        <p class="plan-price"><strong>Ksh {{ plan.price }}</strong>/month</p>
+                        <p class="text-muted">{{ plan.description }}</p>
+                        <a href="#" class="btn btn-primary btn-lg rounded-pill">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">No Internet Plans Available</p>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Why Choose Us?</h2>
+            <p class="lead">Fast speeds, low latency, and reliable service across Kenya.</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <i class="fa fa-bolt about-icons"></i>
+                    <h5>Super Fast Speeds</h5>
+                    <p>Enjoy seamless streaming, gaming, and browsing with speeds up to 1 Gbps.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-shield-alt about-icons"></i>
+                    <h5>Reliable & Secure</h5>
+                    <p>Our fiber network ensures 99.9% uptime with military-grade security.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-wallet about-icons"></i>
+                    <h5>Affordable Plans</h5>
+                    <p>We provide the best value for your money with flexible payment options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container my-5">
+        <h2 class="text-center fw-bold mb-4">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Get in Touch</h5>
+                <p><i class="fa fa-envelope"></i> support@speednet.com</p>
+                <p><i class="fa fa-phone"></i> +254 700 123 456</p>
+                <p><i class="fa fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3">
+        <p class="mb-0">© 2025 SpeedNet. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+<head><title>Our Internet Plans</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Choose the Perfect Internet Plan for You</h1>
+    <ul>
+        {% for plan in plans %}
+            <li>{{ plan.name }} - ${{ plan.price }} - {{ plan.speed }} - {{ plan.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
